@@ -1,6 +1,6 @@
-function[mating_pool]=g_roulette_wheel(Population,N,m,selection_probability)
-cdf = cumsum(selection_probability);
+function [mating_pool]=g_roulette_wheel(Population,N,m,selection_probability)
 mating_pool = NaN(N,m);
+cdf = cumsum(selection_probability);
 for i=1:N
     r=rand;
     for j=1:N
@@ -10,4 +10,5 @@ for i=1:N
         end
     end
 end
-return;
+return;  
+
