@@ -25,7 +25,7 @@ while (s)
     Average_fitness(it) = ave_fit;
     
     %% Creating next generation 
-    [mating_pool]=g_roulette_wheel(Population,N,selection_probability);
+    [mating_pool]=g_roulette_wheel(Population,N,m,selection_probability);
     [new_pop]=g_crossover(mating_pool,Pc,N,m,Hi,Lo);
     [Population]=g_mutation(new_pop,Pm,N,m,scale,Hi,Lo);
     %% Compare value fitness of current iteration with last one

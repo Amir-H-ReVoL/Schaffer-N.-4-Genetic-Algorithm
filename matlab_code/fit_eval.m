@@ -1,4 +1,5 @@
 function [selection_probability,fit,ave_fit,max_fit,opt_sol]=fit_eval(Population,N)
+fit = NaN(N,1);
 for i=1:N
     x(1)=Population(i,1);
     x(2)=Population(i,2);

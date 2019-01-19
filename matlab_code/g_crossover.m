@@ -1,4 +1,5 @@
 function[new_pop]=g_crossover(mating_pool,Pc,N,m,Hi,Lo)
+new_pop = NaN(N,m);
 parent_num = randperm(N);
 for j = 1:2:N
     pointer1 = parent_num(j);
