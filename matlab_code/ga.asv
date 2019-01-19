@@ -1,0 +1,49 @@
+%% Initial Settings And Strings
+format long 
+
+%% initial Genetic Algorithm Parameters
+m=2;
+Pc = 0.5;
+Pm = 0.04;
+scale = 0.1;
+N=150;
+Lo = [-10 -10];
+Hi = [10 10];
+
+%% Creating Firtst Generation of Population
+[Population] = first_gen(N,m,Lo,Hi);
+    
+%% Vectors best fitness and average fitness for every iteration of genetic algorithm 
+best_so_far = [];
+Average_fitness = [];
+it = 1;
+s = true;
+
+%% Genetic Algorithm Body
+while (s) 
+
+    Average_fitness(it) = ave_fit;
+    
+    %% Creating next generation 
+    [mating_pool]=g_roulette_wheel(Population,N,selection_probability);
+    [new_pop]=g_crossover(mating_pool,Pc,N,m,Hi,Lo);
+    [Population]=g_mutation(new_pop,Pm,N,m,scale,Hi,Lo);
+
+    %% Ending condition 
+    if (it == 1000)
+        s=false;
+    end
+it = it +1;
+end
+
+%% Show results and plot
+disp('');
+iters = it
+result = [final_sol,best_so_far(end)]
+
+%% Draw polt for genetic algorithm performance
+x=1:it-1;
+figure,plot(x,best_so_far,'k',x,Average_fitness,'.-k');
+xlabel('Generation');
+ylabel('Fitness Function')
+legend('best-so-far','average fitness')
