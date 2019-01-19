@@ -22,7 +22,7 @@ total_succ = 0;
 for r = 1 : runs
     
     %% Create First Generation
-    Population=fir_gen(N,m,Lo,Hi);
+    Population=first_generation(N,m,Lo,Hi);
     
     %% initial best so far, average fitness, base it value, logical value for end condotion 
     best_so_far=[];
@@ -34,7 +34,7 @@ for r = 1 : runs
     while(s)
         
         %% Calculate SB, fitness
-        [selection_probability,fit,ave_fit,max_fit,opt_sol]=fit_eval(Population,N,m);
+        [selection_probability,fit,ave_fit,max_fit,opt_sol]=fitness_evaluation(Population,N);
         
         %% Check Fitness Value
         if it==1
@@ -56,9 +56,9 @@ for r = 1 : runs
         end
         
         %% 
-        [mating_pool]=g_roulette_wheel(Population,N,m,selection_probability);
-        [new_pop]=g_crossover(mating_pool,Pc,N,m,Hi,Lo);
-        [Population]=g_mutation(new_pop,Pm,N,m,scale,Hi,Lo);
+        [mating_pool]=roulette_wheel(Population,N,m,selection_probability);
+        [new_pop]=crossover(mating_pool,Pc,N,m,Hi,Lo);
+        [Population]=mutation(new_pop,Pm,N,m,scale,Hi,Lo);
         
         %% end condition
         temp = func(final_sol(1),final_sol(2));

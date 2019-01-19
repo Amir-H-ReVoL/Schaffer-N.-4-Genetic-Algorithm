@@ -1,4 +1,4 @@
-function [Population]=g_mutation(new_pop,Pm,N,m,scale,Hi,Lo)
+function [Population]=mutation(new_pop,Pm,N,m,scale,Hi,Lo)
 DR=Hi-Lo;
 Sigma=DR*scale;
 Delta=zeros(N,m);
