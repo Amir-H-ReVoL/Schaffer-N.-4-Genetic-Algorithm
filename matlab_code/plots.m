@@ -12,7 +12,7 @@ dd = func(aa,ss);
 figure,surf(aa,ss,dd)
 mesh(aa,ss,dd);
 
-q = -50:0.1:50;
+q = -50:1:50;
 w = q;
 [qq , ww] = meshgrid(q,w);
 ee = func(qq,ww);
