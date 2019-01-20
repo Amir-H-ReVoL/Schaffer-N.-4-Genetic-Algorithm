@@ -13,7 +13,7 @@ for j=1:2:N
     else
         off1=P1;
         off2=P2;
-    end    
+    end
 new_pop(j,:)=off1;
 new_pop(j+1,:)=off2;
 end
