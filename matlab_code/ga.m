@@ -13,9 +13,9 @@ Hi=[10 10];
 Iteration = 300;
 
 %% Average Parameters
-mulBestSoFar = zeros(runs);
-mulAverageFitness = zeros(runs);
-mulFinalSol = zeros(runs,m);
+mulBestSoFar = NaN(runs);
+mulAverageFitness = NaN(runs);
+mulFinalSol = NaN(runs,m);
 total_succ = 0;
 
 %% run GA
