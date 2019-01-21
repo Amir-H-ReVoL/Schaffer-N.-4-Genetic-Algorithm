@@ -4,19 +4,17 @@ format long;
 %% GA Parameters
 N=150;
 Pc=1;
-Pm=0.035;
-scale=0.5;
-runs = 100;
+Pm=0.045;
+scale=0.8;
 m=2;
 Lo=[-10 -10];
 Hi=[10 10];
-Iteration = 300;
+Iteration = 500;
 
 %% Average Parameters
 mulBestSoFar = NaN(runs);
 mulAverageFitness = NaN(runs);
 mulFinalSol = NaN(runs,m);
-total_succ = 0;
 
 %% run GA
 for r = 1 : runs
@@ -62,10 +60,11 @@ for r = 1 : runs
         
         %% end condition
         temp = func(final_sol(1),final_sol(2));
-        if (((abs(final_sol(1)) < 0.009)&&(abs(final_sol(2)) < 1.254)) || it == Iteration)
+        if (((abs(final_sol(1)) < 0.009)&&(abs(final_sol(2)) < 1.2539)) || it == Iteration)
             s = false;
         end
         it = it+1;
+        totalIter = totalIter + 1;
     end
     
     %% plot & results

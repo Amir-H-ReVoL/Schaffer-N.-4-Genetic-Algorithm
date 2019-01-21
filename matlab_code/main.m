@@ -1,5 +1,12 @@
 clc;
 clear all;
 close all;
+totalIter = 0;
+total_succ = 0;
+runs = 100;
 ga();
+disp("mean of total Iterations->");
+disp(totalIter/runs);
+disp("successful runs->");
+disp(total_succ);
 plots();
